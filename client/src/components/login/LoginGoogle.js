@@ -4,7 +4,7 @@ import React from 'react'
 import './login.css'
 //import AuthStore from '../../middleware/AuthStore'
 import GoogleLogin from 'react-google-login'
-import config from '../../config'
+//import config from '../../config'
 import Axios from 'axios'
 
 const LoginGoogle = ({action,text}) => {
@@ -49,7 +49,7 @@ const LoginGoogle = ({action,text}) => {
       </GoogleLogin> */}
 
       <GoogleLogin
-      clientId={config.googleClientId}
+      clientId={process.env.REACT_APP_GOOGLE_CLIENTID}
       cookiePolicy='none'
       render={renderProps=>(
         <button onClick={renderProps.onClick}
