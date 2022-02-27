@@ -219,7 +219,7 @@ blockquote span{
   padding: block ;
   padding-left: 75px;
   padding-right: 0px;
-  padding-top: 60px;
+  padding-top: 60px !important;
   background-color: white;
 }
 .form-control {
