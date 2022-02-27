@@ -246,6 +246,7 @@ const addTask=(task)=>{
                     {bool_tasktoform && <ModalForm 
                         title={'Edit Task'}
                         close={()=> {
+                        didMount()  
                         bool_settasktoform(false)
                         bool_setdidMount(true)
                         }}
@@ -260,8 +261,8 @@ const addTask=(task)=>{
                         {tasks.length>0? (<Tasks tasks={tasks} onDelete={delTask} onEdit={EditTask} />)
                         :("No task scheduled .")}
                         {snackopen && <Snackbars msg={snackmsg} close={()=>{
-                          didMount()
-                          setsnack(false)}}/>}
+                          setsnack(false)}
+                        }/>}
                         
                          <Footer/>  
                          
