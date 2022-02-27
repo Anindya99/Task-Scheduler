@@ -28,11 +28,17 @@ app.use(express.json());
 
 app.use(cors());
 
-//cron and email declared above
-cron.schedule('* * * * *', () => {
+//cron and email declared above runs at 00 sec of every minute
+cron.schedule('0 0-59 * * * *', () => {
     //console.log('hello')
     email()
  }); 
+
+ /* cron.schedule('0 0-59 * * * *', () => { // Every minute offset 0 seconds
+    console.log("--------------------------------------------------");
+    console.log('Cron Task - READ - Time: ' + (new Date()));
+    console.log("--------------------------------------------------");
+}); */
 
 //connect to mongo
 //const db_link= config.get('db_link')

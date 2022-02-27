@@ -13,6 +13,7 @@ module.exports=function(){
             if(err) throw Error('cannot iterate task database')
 
             const cur_d= new Date()
+            //console.log(cur_d)
             const cur_month = parseInt(cur_d.getMonth() + 1)
             const cur_day = parseInt(cur_d.getDate())
             const cur_year = parseInt(cur_d.getFullYear())
@@ -31,11 +32,13 @@ module.exports=function(){
                 //console.log(`year:${year}, month:${month}, day:${day}`)
 
                 if(task.reminder){
-                    if(cur_year===year && cur_month===month && cur_day===day && cur_hrs===hrs){
-                        if(min-cur_min===2){
+                    if(cur_d<d){
+                        const diffTime = d-cur_d;//it is in milli seconds
+                        //console.log(diffTime/60000)
+                        if(Math.ceil(diffTime/60000)===2){
                             try{
                                 //var id= task.userId.valueOf()
-                                //console.log(id)
+                                //console.log(cur_d)
                                 User.find({},(err,users)=>{
                                     if(err) throw Error('cannot iterate user database')
 
