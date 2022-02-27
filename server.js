@@ -50,11 +50,11 @@ app.use('/api/finduser',require('./routes/users.routes'));
 app.use('/api/users/auth',require('./routes/auth.routes'));
 app.use('/api/users/Oauth',require('./routes/Oauth.routes'));
 
-app.use((_, res, next) => {
+/* app.use((_, res, next) => {
     let err = new Error("Not Found");
     err.status = 404;
     next(err);
-});
+}); */
 
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
