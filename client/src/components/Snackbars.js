@@ -21,7 +21,7 @@ export default function CustomizedSnackbars({msg,close}) {
 
   return (
 
-      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           {msg}
         </Alert>
