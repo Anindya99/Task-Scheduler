@@ -160,9 +160,10 @@ const addTask=(task)=>{
     Axios
       .post('/api/tasks',updTask,{headers: {"x-auth-token" : `Bearer ${JSON.parse(token)}`}})
       .then(res=>{
-        console.log(res.data._id)
-        setsnackmsg('New Task Added !')
-        setsnack(true)
+        console.log(res.data._id);
+        didMount();
+        setsnackmsg('New Task Added !');
+        setsnack(true);
       })
       .catch(err=>{
         if (err.response) {
