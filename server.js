@@ -42,21 +42,22 @@ mongoose
     })
     .then(()=> console.log('Mongoose connected...'))
     .catch(err=> console.log(err));
-
-if (process.env.NODE_ENV === 'production') {
-        // Set static folder
-        app.use(express.static('client/build'));
-      
-        app.get('*', (req, res) => {
-          res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-        });
-}
     
 
 app.use('/api/tasks',tasks);
 app.use('/api/finduser',require('./routes/users.routes'));
 app.use('/api/users/auth',require('./routes/auth.routes'));
 app.use('/api/users/Oauth',require('./routes/Oauth.routes'));
+
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
 app.use((_, res, next) => {
     let err = new Error("Not Found");
     err.status = 404;
