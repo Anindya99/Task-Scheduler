@@ -259,7 +259,9 @@ const addTask=(task)=>{
                         
                         {tasks.length>0? (<Tasks tasks={tasks} onDelete={delTask} onEdit={EditTask} />)
                         :("No task scheduled .")}
-                        {snackopen && <Snackbars msg={snackmsg} close={()=>setsnack(false)}/>}
+                        {snackopen && <Snackbars msg={snackmsg} close={()=>{
+                          didMount()
+                          setsnack(false)}}/>}
                         
                          <Footer/>  
                          
