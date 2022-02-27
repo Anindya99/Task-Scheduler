@@ -217,9 +217,9 @@ blockquote span{
   height: 420px;
   margin-left: 20%;
   padding: block ;
-  padding-left: 160px !important;
+  padding-left: 120px !important;
   padding-right: 0px;
-  padding-top: 60px ;
+  padding-top: 60px !important;
   background-color: white;
 }
 .form-control {
