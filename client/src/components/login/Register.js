@@ -112,7 +112,7 @@ const Register=()=>{
 
                 <div className="login-form-group">
                     <label>Name</label>
-                    <input type="text" className="login-form-control" placeholder="First name" 
+                    <input type="text" className="login-form-control" placeholder="Enter name" 
                     value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
 
