@@ -81,7 +81,7 @@ const AddTask = ({onAdd,task}) => {
                             onChange={(newValue) => {
                               setday(newValue);
                             }}
-                            renderInput={(params) => <TextField {...params} style = {{width: 646,background:'white'}}/>}
+                            renderInput={(params) => <TextField {...params} style = {{width: '70%',background:'white'}}/>}
 
                           />
                   </LocalizationProvider>
