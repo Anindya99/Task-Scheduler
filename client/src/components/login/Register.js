@@ -98,9 +98,6 @@ const Register=()=>{
             <form className="form-elements register-form-elements" >
                 <h2>Sign Up</h2>
 
-                {error.length>0 &&
-                <Alert severity="error">{error[0]}</Alert>
-                }
                 {success &&
                     <Alert severity="success">Registration Successfull</Alert>
                 }
@@ -108,6 +105,10 @@ const Register=()=>{
                 <LoginGoogle action={onLoginGoogle} text={'Register'}/>
 
                 <h3>or</h3>
+
+                {error.length>0 &&
+                <Alert severity="error">{error[0]}</Alert>
+                }
 
                 <div className="login-form-group">
                     <label>Name</label>
