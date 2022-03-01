@@ -203,7 +203,7 @@ const ModalForm = ({title,close,task,activatesnack,isEmpty}) => {
                             onChange={(newValue) => {
                               setcurday(newValue);
                             }}
-                            renderInput={(params) => <TextField {...params} style = {{width: 646}}/>}
+                            renderInput={(params) => <TextField {...params} style = {{width: '75%'}}/>}
 
                           />
                   </LocalizationProvider>
