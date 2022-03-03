@@ -233,7 +233,7 @@ blockquote span{
     height: 420px;
     margin-left: 20%;
     padding: block ;
-    padding-left: 25px;
+    padding-left: 25px !important;
     padding-top: 47px !important;
     background-color: white;
   }
