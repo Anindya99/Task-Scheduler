@@ -17,7 +17,7 @@ i{
 .flex-item:nth-of-type(3) { order: 2; }
 
 .box3{
-  padding-left: 50%;
+  padding-left: 48%;
 }
 }
 @media only screen and (min-width:1500px) {
