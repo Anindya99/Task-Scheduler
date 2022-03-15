@@ -286,7 +286,7 @@ blockquote span{
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  top: calc(50vh - 45vh);
+  top: calc(50vh - 48vh);
   z-index: 100;
   backdrop-filter: blur(2px);
   position: fixed;
