@@ -60,7 +60,7 @@ module.exports=function(){
                                                         const message = `
                                                         <h3>Hi ${(user.name).split(' ')[0]},</h3> 
                                                         <p>
-                                                        You have the following task - <b>${task.text} </b>
+                                                        You have the following task - <strong style="color:red;">${task.text} </strong>
                                                         to be done on <b>${da}</b> at <b>${ti} hrs</b> .<br><br>
                                                         Thanks and regards.
                                                         <br><br><br><br><br>
