@@ -136,4 +136,9 @@ h3:after {
   align-items: center;
 }
 
-  
+.newLogin{
+  margin-left: 40px;
+  padding-left: 52px !important;
+  padding-top: 20px !important;
+  padding-bottom: 15px;
+}  

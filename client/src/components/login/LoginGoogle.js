@@ -3,8 +3,9 @@ import React from 'react'
 //import { Link } from 'react-router-dom'
 import './login.css'
 //import AuthStore from '../../middleware/AuthStore'
-import GoogleLogin from 'react-google-login'
+//import GoogleLogin from 'react-google-login'
 //import config from '../../config'
+import { GoogleLogin } from '@react-oauth/google';
 import Axios from 'axios'
 
 const LoginGoogle = ({action,text}) => {
@@ -15,7 +16,7 @@ const LoginGoogle = ({action,text}) => {
       //dont send something directlyint the body send as object here key is sendToken(can be anything) 
       //and the token is res.tokenId
         Axios
-        .post('/api/users/Oauth/google',{sendToken:res.tokenId})
+        .post('/api/users/Oauth/google',{sendToken:res.credential})
         .then(res=>{
             action(res.data.token)
         })
@@ -48,7 +49,7 @@ const LoginGoogle = ({action,text}) => {
       > 
       </GoogleLogin> */}
 
-      <GoogleLogin
+      {/* <GoogleLogin
       clientId={process.env.REACT_APP_GOOGLE_CLIENTID}
       cookiePolicy='none'
       render={renderProps=>(
@@ -62,7 +63,18 @@ const LoginGoogle = ({action,text}) => {
       onFailure={timetoLogin}
       >
           
-      </GoogleLogin>
+      </GoogleLogin> */}
+      <div className='newLogin'>
+                    <GoogleLogin
+                      onSuccess={credentialResponse => {
+                        timetoLogin(credentialResponse);
+                      }}
+                      onError={() => {
+                        console.log('Login Failed');
+                      }}
+                      size='large'
+                    />
+      </div>
 
       </>
     
