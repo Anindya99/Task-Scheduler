@@ -23,6 +23,7 @@ import Axios from 'axios';
 const Dashboard = () => {
 
   const title="Task Scheduler"
+  const [loading,setLoading]= useState(true);
   const [showAddTask, setShowAddTask] = useState(true)
   const [tasks,setTasks]=useState([])
   const [tasktoform,settasktoform]= useState({})
@@ -116,6 +117,7 @@ const didMount=()=>{
         (Object.assign({},{userId:task.userId,_id:task._id,text:task.text,date:daytoDate(task.day),time:daytoTime(task.day),reminder:task.reminder}))
         );
       setTasks(updallTask);
+      setLoading(false);
     })
     .catch(err=>{
       if (err.response) {
@@ -228,49 +230,55 @@ const addTask=(task)=>{
     window.location.href = "/cover";
  }
  if(AuthStore.isAuthenticated()){
-     return(
-      
-                <div className="container" ref={listRef}>
-                <CssBaseline/>
+    
+          return(
                 
-                <>
-                        {bool_didMount && didMount()}
-                        <Header title={title} logout={exitClicked}/>
-                        <Addbutton 
-                        text={"Add"} 
-                        onAdd={() => setShowAddTask(!showAddTask)}
-                        showAdd={showAddTask}
-                        />
-                        {showAddTask && <AddTask onAdd={addTask}/>}
+                  <div className="container" ref={listRef}>
+                  <CssBaseline/>
+                  
+                  <>
+                          {bool_didMount && didMount()}
+                          <Header title={title} logout={exitClicked}/>
+                          <Addbutton 
+                          text={"Add"} 
+                          onAdd={() => setShowAddTask(!showAddTask)}
+                          showAdd={showAddTask}
+                          />
+                          {showAddTask && <AddTask onAdd={addTask}/>}
 
-                    {bool_tasktoform && <ModalForm 
-                        title={'Edit Task'}
-                        close={()=> {
-                        didMount()  
-                        bool_settasktoform(false)
-                        bool_setdidMount(true)
-                        }}
-                        task={tasktoform}
-                        activatesnack={(msg)=>{
-                          setsnackmsg(msg)
-                          setsnack(true)
-                        }}
-                        /> }
+                      {bool_tasktoform && <ModalForm 
+                          title={'Edit Task'}
+                          close={()=> {
+                          didMount()  
+                          bool_settasktoform(false)
+                          bool_setdidMount(true)
+                          }}
+                          task={tasktoform}
+                          activatesnack={(msg)=>{
+                            setsnackmsg(msg)
+                            setsnack(true)
+                          }}
+                          /> }
 
-                        
-                        {tasks.length>0? (<Tasks tasks={tasks} onDelete={delTask} onEdit={EditTask} />)
-                        :(<h2 style={{marginLeft:'3%'}}><br/><br/>No Task Scheduled .</h2>)}
-                        {snackopen && <Snackbars msg={snackmsg} close={()=>{
-                          setsnack(false)}
-                        }/>}
-                        
-                         <Footer/>  
-                         
-                </>
-              
-            </div>
-          
-     )
+                          
+                          {!loading &&(
+                            tasks.length>0? (<Tasks tasks={tasks} onDelete={delTask} onEdit={EditTask} />)
+                            :(<h2 style={{marginLeft:'3%'}}><br/><br/>No Task Scheduled .</h2>)
+                          )
+                          }
+                          {snackopen && <Snackbars msg={snackmsg} close={()=>{
+                            setsnack(false)}
+                          }/>}
+                          
+                          <Footer/>  
+                          
+                  </>
+                
+              </div>
+            
+          )
+    
+     
  }
  else{
   return(
